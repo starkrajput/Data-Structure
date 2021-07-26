@@ -1,0 +1,25 @@
+SinglyLinkedListNode* deleteNode(SinglyLinkedListNode* llist, int position) {
+    
+
+    if(position==0){
+        llist=llist->next;
+        return llist; 
+    }
+    else{
+        SinglyLinkedListNode* temp=llist;
+        SinglyLinkedListNode* prev=llist;
+        SinglyLinkedListNode* away=llist;
+        for(int i=0;i<position;i++)
+          temp=temp->next;
+        for(int j=0;j<position-1;j++){
+            prev=prev->next;
+        }  
+        for(int k=0;k<position+1;k++)
+            away =away->next;
+        prev->next=away;
+        temp->next=NULL;
+        return llist;  
+          
+         
+    }
+}
